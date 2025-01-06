@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anurag Hruday Pirangi - Resume</title>
+    <meta name="description" content="Portfolio website of Anurag Hruday Pirangi, showcasing expertise in machine learning, computer vision, and robotics.">
+    <meta name="author" content="Anurag Hruday Pirangi">
+    <meta name="keywords" content="Machine Learning, Robotics, Computer Vision, Portfolio, AI">
+    <title>Anurag Hruday Pirangi - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
@@ -14,6 +17,20 @@
             padding: 0;
             font-family: 'Montserrat', sans-serif;
             scroll-behavior: smooth;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .sidebar {
+            background: linear-gradient(45deg, #1a1a1a, #333);
+        }
+
+        body.dark-mode .timeline-item-content {
+            background: #292929;
         }
 
         /* Sidebar */
@@ -44,6 +61,22 @@
             transform: translateX(10px);
         }
 
+        .dark-mode-toggle {
+            margin: 20px auto;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+            padding: 10px;
+            background: #444;
+            color: white;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .dark-mode-toggle:hover {
+            background: #666;
+        }
+
         /* Main Content */
         .main {
             margin-left: 200px;
@@ -56,7 +89,7 @@
         }
 
         #homepage {
-            background: url('background.jpg') no-repeat center center/cover;
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -157,46 +190,7 @@
             left: -8px;
         }
 
-        /* Popup Card */
-        .popup-card {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotateY(90deg);
-            width: 300px;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            animation: flipIn 0.5s forwards;
-        }
-
-        .popup-card h3 {
-            margin-top: 0;
-        }
-
-        @keyframes flipIn {
-            0% {
-                transform: translate(-50%, -50%) rotateY(90deg);
-            }
-            100% {
-                transform: translate(-50%, -50%) rotateY(0);
-            }
-        }
-
-        .popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
-
+        /* Skills */
         .skills-section {
             text-align: center;
             margin-top: 40px;
@@ -237,38 +231,48 @@
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
 
-        /* About Section Enhancements */
-        #about {
-            background: #ecf0f1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 50px 20px;
+        /* Contact */
+        #contact {
+            text-align: center;
         }
 
-        #about img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            margin-bottom: 20px;
+        #contact a {
+            text-decoration: none;
+            color: #2c3e50;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        #about p {
-            max-width: 800px;
-            text-align: center;
-            font-size: 18px;
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
 
-        [data-aos] {
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
+        .contact-form button {
+            padding: 10px 20px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        [data-aos].aos-animate {
-            opacity: 1;
-            transform: translateY(0);
+        .contact-form button:hover {
+            background: #34495e;
         }
 
         /* Responsive Design */
@@ -305,6 +309,10 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
         function openPopup(contentId) {
             document.getElementById(contentId).style.display = 'block';
             document.querySelector('.popup-overlay').style.display = 'block';
@@ -323,6 +331,7 @@
         <a href="#resume">Resume</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
+        <div class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</div>
     </div>
 
     <div class="main">
@@ -391,17 +400,26 @@
         <section id="projects">
             <h2>Projects</h2>
             <ul>
-                <li data-aos="fade-up">Custom LLM for Text-to-Image Generation</li>
-                <li data-aos="fade-up">Intelligent Traffic Signal Control using Deep RL</li>
-                <li data-aos="fade-up">Autonomous Navigation using LiDAR</li>
+                <li data-aos="fade-up"><a href="https://github.com/anurag/text-to-image">Custom LLM for Text-to-Image Generation</a></li>
+                <li data-aos="fade-up"><a href="https://github.com/anurag/traffic-signal-deeprl">Intelligent Traffic Signal Control using Deep RL</a></li>
+                <li data-aos="fade-up"><a href="https://github.com/anurag/lidar-nav">Autonomous Navigation using LiDAR</a></li>
             </ul>
         </section>
 
         <section id="contact">
             <h2>Contact</h2>
-            <p>Email: anurag@example.com</p>
+            <p>Email: <a href="mailto:anurag@example.com">anurag@example.com</a></p>
             <p>Phone: +1 (123) 456-7890</p>
             <p>LinkedIn: <a href="https://linkedin.com/in/anurag">linkedin.com/in/anurag</a></p>
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </section>
 
         <!-- Popup Overlays -->
