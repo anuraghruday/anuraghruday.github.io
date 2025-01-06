@@ -27,89 +27,154 @@
 </body>
 </html>
  -->
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anurag Hruday Pirangi | Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Anurag Hruday Pirangi - Resume</title>
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background: #2c3e50;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #34495e;
+        }
+
+        /* Main Content */
+        .main {
+            margin-left: 200px;
+            padding: 0;
+        }
+
+        section {
+            padding: 50px;
+            min-height: 100vh;
+        }
+
+        #homepage {
+            background: url('background.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        #homepage h1 {
+            font-size: 60px;
+        }
+
+        #about, #resume, #projects, #contact {
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #contact {
+            background: #ecf0f1;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                flex-direction: row;
+            }
+
+            .sidebar a {
+                padding: 10px;
+                font-size: 16px;
+                flex: 1;
+                text-align: center;
+            }
+
+            .main {
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Anurag Hruday Pirangi</h1>
-        <h2>Software Developer & Machine Learning Engineer</h2>
-        <nav>
-            <ul>
-                <li><a href="#work-experience">Work Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#tech-stack">Tech Stack</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="sidebar">
+        <a href="#homepage">Home</a>
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
 
-    <main>
-        <section id="work-experience">
-            <h2>Work Experience</h2>
-            <div class="experience">
-                <h3>Machine Learning Engineer</h3>
-                <p><strong>Company:</strong> Drishte A.I. (Jan 2020 - Jun 2023)</p>
-                <ul>
-                    <li>Developed and deployed AI/computer vision models using YOLO, Mask R-CNN, and TensorRT.</li>
-                    <li>Optimized real-time analytics pipelines for scalability and performance.</li>
-                    <li>Integrated CV models on Jetson Nano for CUDA-accelerated inference at 30 FPS.</li>
-                </ul>
-            </div>
-            <div class="experience">
-                <h3>Research Intern</h3>
-                <p><strong>Institute:</strong> NIT Warangal (May 2018 - Jul 2018)</p>
-                <ul>
-                    <li>Advanced speech feature extraction techniques for enhanced clarity and bandwidth.</li>
-                    <li>Conducted research on speech enhancement using MATLAB.</li>
-                </ul>
-            </div>
+    <div class="main">
+        <section id="homepage">
+            <h1>Anurag Hruday Pirangi</h1>
         </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <ul>
-                <li><strong>Master of Science in Robotics</strong>, University at Buffalo (Expected Dec 2024) - GPA: 3.7</li>
-                <li><strong>Bachelor of Technology in Electronics and Communication Engineering</strong>, IIIT Guwahati (May 2019) - GPA: 3.5</li>
-            </ul>
+        <section id="about">
+            <h2>About</h2>
+            <p>I am a Machine Learning Engineer with expertise in computer vision, robotics, and AI-driven solutions. With a Master's degree in Robotics and extensive project experience, I thrive on solving complex problems and creating impactful innovations.</p>
         </section>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Programming Languages: Python, CUDA, C++, MATLAB, JavaScript</li>
-                <li>Machine Learning: Transformers, Latent Diffusion Models, RNNs, Attention Mechanisms</li>
-                <li>Robotics: SLAM, RRT Path Planning, Sensor Fusion</li>
-                <li>Web Development: HTML, CSS, JavaScript, GitHub Pages</li>
-            </ul>
+        <section id="resume">
+            <h2>Resume</h2>
+            <h3>Work Experience</h3>
+            <p>Computer Vision Engineer at Drishte A.I. (2020 - 2023)</p>
+            <p>Research Intern at NIT Warangal (2018)</p>
+
+            <h3>Education</h3>
+            <p>Master of Science in Robotics, University at Buffalo</p>
+            <p>Bachelor of Technology in Electronics and Communication Engineering, IIIT Guwahati</p>
         </section>
 
-        <section id="tech-stack">
-            <h2>Tech Stack</h2>
+        <section id="projects">
+            <h2>Projects</h2>
             <ul>
-                <li>Frameworks: TensorFlow, PyTorch, OpenCV, YOLO, Detectron2</li>
-                <li>Tools: Jetson Nano, SUMO Simulator, MATLAB</li>
-                <li>Databases: SQL, PostgreSQL</li>
+                <li>Custom LLM for Text-to-Image Generation</li>
+                <li>Intelligent Traffic Signal Control using Deep RL</li>
+                <li>Autonomous Navigation using LiDAR</li>
             </ul>
         </section>
 
         <section id="contact">
             <h2>Contact</h2>
-            <p>Email: <a href="mailto:anurag@example.com">anurag@example.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/anurag-hruday-pirangi/">LinkedIn Profile</a></p>
-            <p>GitHub: <a href="https://github.com/anurag-hruday-pirangi">github.com/anurag-hruday-pirangi</a></p>
+            <p>Email: anurag@example.com</p>
+            <p>Phone: +1 (123) 456-7890</p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/anurag">linkedin.com/in/anurag</a></p>
         </section>
-    </main>
-
-    <footer>
-        <p>© 2025 Anurag Hruday Pirangi. Built with GitHub Pages.</p>
-    </footer>
+    </div>
 </body>
 </html>
+
