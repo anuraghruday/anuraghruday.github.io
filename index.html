@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anurag Hruday Pirangi - Resume</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <style>
         /* General Reset */
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -21,11 +23,12 @@
             left: 0;
             width: 200px;
             height: 100%;
-            background: #2c3e50;
+            background: linear-gradient(45deg, #2c3e50, #34495e);
             color: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
         }
 
         .sidebar a {
@@ -33,11 +36,12 @@
             color: white;
             padding: 15px 20px;
             font-size: 18px;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.3s;
         }
 
         .sidebar a:hover {
-            background: #34495e;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
         }
 
         /* Main Content */
@@ -99,7 +103,13 @@
             background: #ecf0f1;
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .resume-column:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
         .resume-column h3 {
@@ -132,11 +142,17 @@
 
         .skill {
             padding: 10px 20px;
-            background: #2c3e50;
+            background: linear-gradient(45deg, #2c3e50, #34495e);
             color: white;
             border-radius: 5px;
             font-size: 16px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
 
         /* About Section Enhancements */
@@ -154,12 +170,23 @@
             height: 150px;
             object-fit: cover;
             margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         #about p {
             max-width: 800px;
             text-align: center;
             font-size: 18px;
+        }
+
+        [data-aos] {
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        [data-aos].aos-animate {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive Design */
@@ -187,8 +214,9 @@
             }
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 </head>
-<body>
+<body onload="AOS.init();">
     <div class="sidebar">
         <a href="#homepage">Home</a>
         <a href="#about">About</a>
@@ -203,21 +231,21 @@
             <h2>Machine Learning Engineer | Robotics Enthusiast</h2>
         </section>
 
-        <section id="about">
+        <section id="about" data-aos="fade-up">
             <h2>About</h2>
             <img src="your-photo.jpg" alt="Anurag Hruday Pirangi">
             <p>I am a Machine Learning Engineer with expertise in computer vision, robotics, and AI-driven solutions. My journey combines academic excellence, professional impact, and a commitment to innovation. Outside work, I love exploring new technologies and engaging in outdoor adventures.</p>
         </section>
 
         <section id="resume">
-            <h2>Resume</h2>
+            <h2 data-aos="fade-right">Resume</h2>
             <div class="resume-container">
-                <div class="resume-column">
+                <div class="resume-column" data-aos="zoom-in">
                     <h3>Education</h3>
                     <p>Master of Science in Robotics, University at Buffalo</p>
                     <p>Bachelor of Technology in Electronics and Communication Engineering, IIIT Guwahati</p>
                 </div>
-                <div class="resume-column">
+                <div class="resume-column" data-aos="zoom-in">
                     <h3>Work Experience</h3>
                     <p>Computer Vision Engineer at Drishte A.I. (2020 - 2023)</p>
                     <p>Research Intern at NIT Warangal (2018)</p>
@@ -225,16 +253,16 @@
             </div>
 
             <div class="skills-section">
-                <h2>Skills</h2>
+                <h2 data-aos="fade-left">Skills</h2>
                 <div class="skills-grid">
-                    <div class="skill">Python</div>
-                    <div class="skill">Machine Learning</div>
-                    <div class="skill">Computer Vision</div>
-                    <div class="skill">Robotics</div>
-                    <div class="skill">CUDA</div>
-                    <div class="skill">TensorFlow</div>
-                    <div class="skill">PyTorch</div>
-                    <div class="skill">C++</div>
+                    <div class="skill" data-aos="flip-up">Python</div>
+                    <div class="skill" data-aos="flip-up">Machine Learning</div>
+                    <div class="skill" data-aos="flip-up">Computer Vision</div>
+                    <div class="skill" data-aos="flip-up">Robotics</div>
+                    <div class="skill" data-aos="flip-up">CUDA</div>
+                    <div class="skill" data-aos="flip-up">TensorFlow</div>
+                    <div class="skill" data-aos="flip-up">PyTorch</div>
+                    <div class="skill" data-aos="flip-up">C++</div>
                 </div>
             </div>
         </section>
@@ -242,9 +270,9 @@
         <section id="projects">
             <h2>Projects</h2>
             <ul>
-                <li>Custom LLM for Text-to-Image Generation</li>
-                <li>Intelligent Traffic Signal Control using Deep RL</li>
-                <li>Autonomous Navigation using LiDAR</li>
+                <li data-aos="fade-up">Custom LLM for Text-to-Image Generation</li>
+                <li data-aos="fade-up">Intelligent Traffic Signal Control using Deep RL</li>
+                <li data-aos="fade-up">Autonomous Navigation using LiDAR</li>
             </ul>
         </section>
 
