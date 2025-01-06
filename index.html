@@ -82,43 +82,84 @@
         #resume {
             background: #f4f4f4;
             color: #333;
+        }
+
+        .resume-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .resume-column {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume-column h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .resume-column p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .skills-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .skills-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .skill {
+            padding: 10px 20px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* About Section Enhancements */
+        #about {
+            background: #ecf0f1;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 50px 20px;
         }
 
-        .resume-section {
-            margin: 20px 0;
-            width: 80%;
+        #about img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        #about p {
             max-width: 800px;
-        }
-
-        .resume-section h3 {
-            cursor: pointer;
-            background: #2c3e50;
-            color: white;
-            padding: 10px;
-            font-size: 20px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .resume-section h3:hover {
-            background: #34495e;
-        }
-
-        .resume-content {
-            display: none;
-            padding: 15px;
-            background: #ecf0f1;
-            border-radius: 5px;
-            margin-top: 10px;
-            animation: slideDown 0.5s ease;
-        }
-
-        @keyframes slideDown {
-            from { height: 0; opacity: 0; }
-            to { height: auto; opacity: 1; }
+            text-align: center;
+            font-size: 18px;
         }
 
         /* Responsive Design */
@@ -140,14 +181,12 @@
             .main {
                 margin-left: 0;
             }
+
+            .resume-container {
+                flex-direction: column;
+            }
         }
     </style>
-    <script>
-        function toggleContent(sectionId) {
-            const content = document.getElementById(sectionId);
-            content.style.display = content.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
 </head>
 <body>
     <div class="sidebar">
@@ -164,22 +203,38 @@
             <h2>Machine Learning Engineer | Robotics Enthusiast</h2>
         </section>
 
+        <section id="about">
+            <h2>About</h2>
+            <img src="your-photo.jpg" alt="Anurag Hruday Pirangi">
+            <p>I am a Machine Learning Engineer with expertise in computer vision, robotics, and AI-driven solutions. My journey combines academic excellence, professional impact, and a commitment to innovation. Outside work, I love exploring new technologies and engaging in outdoor adventures.</p>
+        </section>
+
         <section id="resume">
             <h2>Resume</h2>
-
-            <div class="resume-section">
-                <h3 onclick="toggleContent('workExperience')">Work Experience</h3>
-                <div class="resume-content" id="workExperience">
+            <div class="resume-container">
+                <div class="resume-column">
+                    <h3>Education</h3>
+                    <p>Master of Science in Robotics, University at Buffalo</p>
+                    <p>Bachelor of Technology in Electronics and Communication Engineering, IIIT Guwahati</p>
+                </div>
+                <div class="resume-column">
+                    <h3>Work Experience</h3>
                     <p>Computer Vision Engineer at Drishte A.I. (2020 - 2023)</p>
                     <p>Research Intern at NIT Warangal (2018)</p>
                 </div>
             </div>
 
-            <div class="resume-section">
-                <h3 onclick="toggleContent('education')">Education</h3>
-                <div class="resume-content" id="education">
-                    <p>Master of Science in Robotics, University at Buffalo</p>
-                    <p>Bachelor of Technology in Electronics and Communication Engineering, IIIT Guwahati</p>
+            <div class="skills-section">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill">Python</div>
+                    <div class="skill">Machine Learning</div>
+                    <div class="skill">Computer Vision</div>
+                    <div class="skill">Robotics</div>
+                    <div class="skill">CUDA</div>
+                    <div class="skill">TensorFlow</div>
+                    <div class="skill">PyTorch</div>
+                    <div class="skill">C++</div>
                 </div>
             </div>
         </section>
