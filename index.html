@@ -111,6 +111,7 @@
             width: 50%;
             padding: 10px 40px;
             box-sizing: border-box;
+            cursor: pointer;
         }
 
         .timeline-item:nth-child(odd) {
@@ -154,6 +155,46 @@
         .timeline-item:nth-child(even)::before {
             right: auto;
             left: -8px;
+        }
+
+        /* Popup Card */
+        .popup-card {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateY(90deg);
+            width: 300px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            animation: flipIn 0.5s forwards;
+        }
+
+        .popup-card h3 {
+            margin-top: 0;
+        }
+
+        @keyframes flipIn {
+            0% {
+                transform: translate(-50%, -50%) rotateY(90deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotateY(0);
+            }
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
         }
 
         .skills-section {
@@ -263,6 +304,17 @@
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        function openPopup(contentId) {
+            document.getElementById(contentId).style.display = 'block';
+            document.querySelector('.popup-overlay').style.display = 'block';
+        }
+
+        function closePopup(contentId) {
+            document.getElementById(contentId).style.display = 'none';
+            document.querySelector('.popup-overlay').style.display = 'none';
+        }
+    </script>
 </head>
 <body onload="AOS.init();">
     <div class="sidebar">
@@ -288,25 +340,25 @@
         <section id="resume">
             <h2 data-aos="fade-right">Resume</h2>
             <div class="timeline">
-                <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-item" data-aos="fade-up" onclick="openPopup('msPopup')">
                     <div class="timeline-item-content">
                         <h3>2024 - Master of Science in Robotics</h3>
                         <p>University at Buffalo</p>
                     </div>
                 </div>
-                <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-item" data-aos="fade-up" onclick="openPopup('btechPopup')">
                     <div class="timeline-item-content">
                         <h3>2019 - Bachelor of Technology</h3>
                         <p>IIIT Guwahati</p>
                     </div>
                 </div>
-                <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-item" data-aos="fade-up" onclick="openPopup('cvEngineerPopup')">
                     <div class="timeline-item-content">
                         <h3>2020-2023 - Computer Vision Engineer</h3>
                         <p>Drishte A.I.</p>
                     </div>
                 </div>
-                <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-item" data-aos="fade-up" onclick="openPopup('internPopup')">
                     <div class="timeline-item-content">
                         <h3>2018 - Research Intern</h3>
                         <p>NIT Warangal</p>
@@ -318,28 +370,19 @@
                 <h2 data-aos="fade-left">Skills</h2>
                 <div class="skills-grid">
                     <div class="skill" data-aos="flip-up">
-                        <img src="python-logo.png" alt="Python"> Python
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"> Python
                     </div>
                     <div class="skill" data-aos="flip-up">
-                        <img src="ml-logo.png" alt="Machine Learning"> Machine Learning
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/machinelearning/machinelearning-original.svg" alt="Machine Learning"> Machine Learning
                     </div>
                     <div class="skill" data-aos="flip-up">
-                        <img src="cv-logo.png" alt="Computer Vision"> Computer Vision
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="Computer Vision"> Computer Vision
                     </div>
                     <div class="skill" data-aos="flip-up">
-                        <img src="robotics-logo.png" alt="Robotics"> Robotics
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/robotframework/robotframework-original.svg" alt="Robotics"> Robotics
                     </div>
                     <div class="skill" data-aos="flip-up">
-                        <img src="cuda-logo.png" alt="CUDA"> CUDA
-                    </div>
-                    <div class="skill" data-aos="flip-up">
-                        <img src="tensorflow-logo.png" alt="TensorFlow"> TensorFlow
-                    </div>
-                    <div class="skill" data-aos="flip-up">
-                        <img src="pytorch-logo.png" alt="PyTorch"> PyTorch
-                    </div>
-                    <div class="skill" data-aos="flip-up">
-                        <img src="cpp-logo.png" alt="C++"> C++
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"> C++
                     </div>
                 </div>
             </div>
@@ -360,6 +403,34 @@
             <p>Phone: +1 (123) 456-7890</p>
             <p>LinkedIn: <a href="https://linkedin.com/in/anurag">linkedin.com/in/anurag</a></p>
         </section>
+
+        <!-- Popup Overlays -->
+        <div class="popup-overlay" onclick="closePopup('msPopup')"></div>
+
+        <div id="msPopup" class="popup-card">
+            <h3>Master of Science in Robotics</h3>
+            <p>Details about the courses and achievements during the program.</p>
+            <button onclick="closePopup('msPopup')">Close</button>
+        </div>
+
+        <div id="btechPopup" class="popup-card">
+            <h3>Bachelor of Technology</h3>
+            <p>Details about projects, activities, and achievements during B.Tech.</p>
+            <button onclick="closePopup('btechPopup')">Close</button>
+        </div>
+
+        <div id="cvEngineerPopup" class="popup-card">
+            <h3>Computer Vision Engineer</h3>
+            <p>Details about the roles and responsibilities during the tenure.</p>
+            <button onclick="closePopup('cvEngineerPopup')">Close</button>
+        </div>
+
+        <div id="internPopup" class="popup-card">
+            <h3>Research Intern</h3>
+            <p>Details about the research focus and accomplishments during the internship.</p>
+            <button onclick="closePopup('internPopup')">Close</button>
+        </div>
+
     </div>
 </body>
 </html>
