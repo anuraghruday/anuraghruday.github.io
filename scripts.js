@@ -47,7 +47,7 @@ popupOverlay.addEventListener('click', function () {
   popupOverlay.classList.remove('active');
 });
 
-// Hamburger menu toggle
+// Hamburger menu toggle (for mobile)
 const hamburger = document.getElementById('hamburger');
 const sidebar = document.getElementById('sidebar');
 
