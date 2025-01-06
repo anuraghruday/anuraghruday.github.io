@@ -1,454 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio website of Anurag Hruday Pirangi, showcasing expertise in machine learning, computer vision, and robotics.">
-    <meta name="author" content="Anurag Hruday Pirangi">
-    <meta name="keywords" content="Machine Learning, Robotics, Computer Vision, Portfolio, AI">
-    <title>Anurag Hruday Pirangi - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <style>
-        /* General Reset */
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            scroll-behavior: smooth;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Basic SEO Meta Tags -->
+  <title>Anurag Hruday Pirangi - Resume</title>
+  <meta name="description" content="Resume of Anurag Hruday Pirangi, a Machine Learning Engineer and Robotics Enthusiast." />
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Anurag Hruday Pirangi - Resume" />
+  <meta property="og:description" content="Machine Learning Engineer, Robotics Enthusiast. Explore my experience and projects here." />
+  <!-- Replace the sample image link with an actual hosted image URL -->
+  <meta property="og:image" content="https://example.com/your-image.jpg" />
+  <meta property="og:type" content="website" />
 
-        /* Dark Mode */
-        body.dark-mode {
-            background-color: #121212;
-            color: #e0e0e0;
-        }
+  <!-- Fonts & Icons -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    rel="stylesheet"
+  />
 
-        body.dark-mode .sidebar {
-            background: linear-gradient(45deg, #1a1a1a, #333);
-        }
+  <!-- AOS Library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 
-        body.dark-mode .timeline-item-content {
-            background: #292929;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 200px;
-            height: 100%;
-            background: linear-gradient(45deg, #2c3e50, #34495e);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .sidebar a {
-            text-decoration: none;
-            color: white;
-            padding: 15px 20px;
-            font-size: 18px;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .sidebar a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(10px);
-        }
-
-        .dark-mode-toggle {
-            margin: 20px auto;
-            cursor: pointer;
-            text-align: center;
-            font-size: 16px;
-            padding: 10px;
-            background: #444;
-            color: white;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .dark-mode-toggle:hover {
-            background: #666;
-        }
-
-        /* Main Content */
-        .main {
-            margin-left: 200px;
-            padding: 0;
-        }
-
-        section {
-            padding: 50px;
-            min-height: 100vh;
-        }
-
-        #homepage {
-            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #homepage h1 {
-            font-size: 60px;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        #homepage h2 {
-            font-size: 24px;
-            margin-top: 10px;
-            animation: fadeIn 2.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        #resume {
-            background: #f4f4f4;
-            color: #333;
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background-color: #2c3e50;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            width: 50%;
-            padding: 10px 40px;
-            box-sizing: border-box;
-            cursor: pointer;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-item-content {
-            padding: 20px;
-            background: #ecf0f1;
-            border-radius: 8px;
-            position: relative;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .timeline-item-content h3 {
-            margin: 0 0 10px;
-            font-size: 18px;
-        }
-
-        .timeline-item-content p {
-            margin: 0;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            right: -8px;
-            width: 16px;
-            height: 16px;
-            background-color: #2c3e50;
-            border: 4px solid white;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .timeline-item:nth-child(even)::before {
-            right: auto;
-            left: -8px;
-        }
-
-        /* Skills */
-        .skills-section {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .skills-section h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .skill {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            background: #ecf0f1;
-            color: #333;
-            border-radius: 5px;
-            font-size: 16px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .skill img {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-        }
-
-        .skill:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Contact */
-        #contact {
-            text-align: center;
-        }
-
-        #contact a {
-            text-decoration: none;
-            color: #2c3e50;
-        }
-
-        #contact a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #ecf0f1;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .contact-form button {
-            padding: 10px 20px;
-            background: #2c3e50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .contact-form button:hover {
-            background: #34495e;
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                flex-direction: row;
-            }
-
-            .sidebar a {
-                padding: 10px;
-                font-size: 16px;
-                flex: 1;
-                text-align: center;
-            }
-
-            .main {
-                margin-left: 0;
-            }
-
-            .timeline-item {
-                width: 100%;
-                text-align: center;
-                padding-left: 0;
-                padding-right: 0;
-            }
-
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-
-        function openPopup(contentId) {
-            document.getElementById(contentId).style.display = 'block';
-            document.querySelector('.popup-overlay').style.display = 'block';
-        }
-
-        function closePopup(contentId) {
-            document.getElementById(contentId).style.display = 'none';
-            document.querySelector('.popup-overlay').style.display = 'none';
-        }
-    </script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body onload="AOS.init();">
-    <div class="sidebar">
-        <a href="#homepage">Home</a>
-        <a href="#about">About</a>
-        <a href="#resume">Resume</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <div class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</div>
+<body>
+
+  <!-- Navigation (Hamburger Menu for Mobile) -->
+  <nav class="sidebar" id="sidebar">
+    <div class="logo">
+      <h2>Anurag</h2>
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
+    <ul>
+      <li><a href="#homepage">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <div class="main">
-        <section id="homepage">
-            <h1>Anurag Hruday Pirangi</h1>
-            <h2>Machine Learning Engineer | Robotics Enthusiast</h2>
-        </section>
+  <!-- Main Content -->
+  <main class="main" id="main">
+    <!-- Homepage Section -->
+    <section id="homepage" class="hero-section">
+      <div class="hero-content">
+        <h1>Anurag Hruday Pirangi</h1>
+        <h2>Machine Learning Engineer | Robotics Enthusiast</h2>
+        <!-- Download Resume Button (Optional) -->
+        <a href="AnuragHrudayPirangi_Resume.pdf" download class="resume-btn">Download Resume (PDF)</a>
+      </div>
+    </section>
 
-        <section id="about" data-aos="fade-up">
-            <h2>About</h2>
-            <img src="your-photo.jpg" alt="Anurag Hruday Pirangi">
-            <p>I am a Machine Learning Engineer with expertise in computer vision, robotics, and AI-driven solutions. My journey combines academic excellence, professional impact, and a commitment to innovation. Outside work, I love exploring new technologies and engaging in outdoor adventures.</p>
-        </section>
+    <!-- About Section -->
+    <section id="about" data-aos="fade-up">
+      <h2>About</h2>
+      <!-- Replace "your-photo.jpg" with your actual image source -->
+      <img src="your-photo.jpg" alt="Photo of Anurag Hruday Pirangi" />
+      <p>
+        I am a Machine Learning Engineer with expertise in computer vision, robotics, 
+        and AI-driven solutions. My journey combines academic excellence, professional 
+        impact, and a commitment to innovation. Outside work, I love exploring new 
+        technologies and engaging in outdoor adventures.
+      </p>
+    </section>
 
-        <section id="resume">
-            <h2 data-aos="fade-right">Resume</h2>
-            <div class="timeline">
-                <div class="timeline-item" data-aos="fade-up" onclick="openPopup('msPopup')">
-                    <div class="timeline-item-content">
-                        <h3>2024 - Master of Science in Robotics</h3>
-                        <p>University at Buffalo</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-up" onclick="openPopup('btechPopup')">
-                    <div class="timeline-item-content">
-                        <h3>2019 - Bachelor of Technology</h3>
-                        <p>IIIT Guwahati</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-up" onclick="openPopup('cvEngineerPopup')">
-                    <div class="timeline-item-content">
-                        <h3>2020-2023 - Computer Vision Engineer</h3>
-                        <p>Drishte A.I.</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-up" onclick="openPopup('internPopup')">
-                    <div class="timeline-item-content">
-                        <h3>2018 - Research Intern</h3>
-                        <p>NIT Warangal</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills-section">
-                <h2 data-aos="fade-left">Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill" data-aos="flip-up">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"> Python
-                    </div>
-                    <div class="skill" data-aos="flip-up">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/machinelearning/machinelearning-original.svg" alt="Machine Learning"> Machine Learning
-                    </div>
-                    <div class="skill" data-aos="flip-up">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="Computer Vision"> Computer Vision
-                    </div>
-                    <div class="skill" data-aos="flip-up">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/robotframework/robotframework-original.svg" alt="Robotics"> Robotics
-                    </div>
-                    <div class="skill" data-aos="flip-up">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"> C++
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>Projects</h2>
-            <ul>
-                <li data-aos="fade-up"><a href="https://github.com/anurag/text-to-image">Custom LLM for Text-to-Image Generation</a></li>
-                <li data-aos="fade-up"><a href="https://github.com/anurag/traffic-signal-deeprl">Intelligent Traffic Signal Control using Deep RL</a></li>
-                <li data-aos="fade-up"><a href="https://github.com/anurag/lidar-nav">Autonomous Navigation using LiDAR</a></li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:anurag@example.com">anurag@example.com</a></p>
-            <p>Phone: +1 (123) 456-7890</p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/anurag">linkedin.com/in/anurag</a></p>
-            <div class="contact-form">
-                <h3>Send a Message</h3>
-                <form>
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Popup Overlays -->
-        <div class="popup-overlay" onclick="closePopup('msPopup')"></div>
-
-        <div id="msPopup" class="popup-card">
-            <h3>Master of Science in Robotics</h3>
-            <p>Details about the courses and achievements during the program.</p>
-            <button onclick="closePopup('msPopup')">Close</button>
+    <!-- Resume Section -->
+    <section id="resume" class="resume-section">
+      <h2 data-aos="fade-right">Resume</h2>
+      <!-- Timeline -->
+      <div class="timeline">
+        <div
+          class="timeline-item"
+          data-aos="fade-up"
+          onclick="openPopup('msPopup')"
+          tabindex="0"
+          aria-label="Details about Master of Science in Robotics"
+        >
+          <div class="timeline-item-content">
+            <h3>2024 - Master of Science in Robotics</h3>
+            <p>University at Buffalo</p>
+          </div>
         </div>
-
-        <div id="btechPopup" class="popup-card">
-            <h3>Bachelor of Technology</h3>
-            <p>Details about projects, activities, and achievements during B.Tech.</p>
-            <button onclick="closePopup('btechPopup')">Close</button>
+        <div
+          class="timeline-item"
+          data-aos="fade-up"
+          onclick="openPopup('btechPopup')"
+          tabindex="0"
+          aria-label="Details about Bachelor of Technology"
+        >
+          <div class="timeline-item-content">
+            <h3>2019 - Bachelor of Technology</h3>
+            <p>IIIT Guwahati</p>
+          </div>
         </div>
-
-        <div id="cvEngineerPopup" class="popup-card">
-            <h3>Computer Vision Engineer</h3>
-            <p>Details about the roles and responsibilities during the tenure.</p>
-            <button onclick="closePopup('cvEngineerPopup')">Close</button>
+        <div
+          class="timeline-item"
+          data-aos="fade-up"
+          onclick="openPopup('cvEngineerPopup')"
+          tabindex="0"
+          aria-label="Details about Computer Vision Engineer role"
+        >
+          <div class="timeline-item-content">
+            <h3>2020-2023 - Computer Vision Engineer</h3>
+            <p>Drishte A.I.</p>
+          </div>
         </div>
-
-        <div id="internPopup" class="popup-card">
-            <h3>Research Intern</h3>
-            <p>Details about the research focus and accomplishments during the internship.</p>
-            <button onclick="closePopup('internPopup')">Close</button>
+        <div
+          class="timeline-item"
+          data-aos="fade-up"
+          onclick="openPopup('internPopup')"
+          tabindex="0"
+          aria-label="Details about Research Intern"
+        >
+          <div class="timeline-item-content">
+            <h3>2018 - Research Intern</h3>
+            <p>NIT Warangal</p>
+          </div>
         </div>
+      </div>
 
-    </div>
+      <!-- Skills Section -->
+      <div class="skills-section">
+        <h2 data-aos="fade-left">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill" data-aos="flip-up">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+              alt="Python Logo"
+            />
+            Python
+          </div>
+          <div class="skill" data-aos="flip-up">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/machinelearning/machinelearning-original.svg"
+              alt="Machine Learning Logo"
+            />
+            Machine Learning
+          </div>
+          <div class="skill" data-aos="flip-up">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"
+              alt="OpenCV Logo"
+            />
+            Computer Vision
+          </div>
+          <div class="skill" data-aos="flip-up">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/robotframework/robotframework-original.svg"
+              alt="Robotics Logo"
+            />
+            Robotics
+          </div>
+          <div class="skill" data-aos="flip-up">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+              alt="C++ Logo"
+            />
+            C++
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li data-aos="fade-up">Custom LLM for Text-to-Image Generation</li>
+        <li data-aos="fade-up">Intelligent Traffic Signal Control using Deep RL</li>
+        <li data-aos="fade-up">Autonomous Navigation using LiDAR</li>
+      </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:anurag@example.com">anurag@example.com</a>
+      </p>
+      <p>
+        <i class="fas fa-phone"></i>
+        +1 (123) 456-7890
+      </p>
+      <p>
+        <i class="fab fa-linkedin"></i>
+        <a href="https://linkedin.com/in/anurag" target="_blank"
+          >linkedin.com/in/anurag</a
+        >
+      </p>
+
+      <!-- Optional: Simple Contact Form with Formspree (Replace # with your own Formspree endpoint) -->
+      <form
+        action="https://formspree.io/f/yourFormID"
+        method="POST"
+        class="contact-form"
+      >
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="_replyto" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Popup Overlays -->
+  <div class="popup-overlay" id="popupOverlay"></div>
+
+  <!-- Popup Cards -->
+  <div id="msPopup" class="popup-card" role="dialog" aria-modal="true">
+    <h3>Master of Science in Robotics</h3>
+    <p>Details about the courses and achievements during the program.</p>
+    <button onclick="closePopup('msPopup')">Close</button>
+  </div>
+
+  <div id="btechPopup" class="popup-card" role="dialog" aria-modal="true">
+    <h3>Bachelor of Technology</h3>
+    <p>Details about projects, activities, and achievements during B.Tech.</p>
+    <button onclick="closePopup('btechPopup')">Close</button>
+  </div>
+
+  <div id="cvEngineerPopup" class="popup-card" role="dialog" aria-modal="true">
+    <h3>Computer Vision Engineer</h3>
+    <p>Details about the roles and responsibilities during the tenure.</p>
+    <button onclick="closePopup('cvEngineerPopup')">Close</button>
+  </div>
+
+  <div id="internPopup" class="popup-card" role="dialog" aria-modal="true">
+    <h3>Research Intern</h3>
+    <p>Details about the research focus and accomplishments during the internship.</p>
+    <button onclick="closePopup('internPopup')">Close</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
