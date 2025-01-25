@@ -44,7 +44,9 @@ function handleScroll() {
 // Navigation Functions
 function toggleNavMenu() {
   const nav = document.querySelector('.floating-nav');
-  nav.classList.toggle('open');
+  const hamburger = document.querySelector('.hamburger');
+  const isExpanded = nav.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', isExpanded);
 }
 
 // Modal Functions

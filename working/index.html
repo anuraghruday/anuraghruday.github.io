@@ -25,7 +25,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-        <div class="hamburger" onclick="toggleNavMenu()">☰</div>
+        <div class="hamburger" 
+            onclick="toggleNavMenu()" 
+            aria-label="Toggle navigation menu"
+            role="button">
+          ☰
+        </div>
         <nav class="floating-nav">
           <ul>
               <li><a href="#homepage"><i class="fas fa-home"></i> Home</a></li>
@@ -51,7 +56,7 @@
         </p>
 
         <!-- <h2>Machine Learning Engineer | Robotics Enthusiast</h2> -->
-        <a href="AnuragHrudayPirangi_Resume.pdf" download class="resume-btn">Download Resume (PDF)</a>
+        <a href="assests/pdfs/Anurag_Hruday_Resume.pdf" download class="resume-btn">Download Resume (PDF)</a>
       </div>
     </section>
 
@@ -61,7 +66,7 @@
       <div class="about-container">
           <!-- Image Section -->
           <div class="about-image">
-              <img src="about.jpg" alt="Anurag Hruday Pirangi" />
+              <img src="assests/images/about.jpg" alt="Anurag Hruday Pirangi" />
           </div>
   
           <!-- Text Content -->
@@ -73,7 +78,7 @@
                   where I honed my problem-solving and engineering skills.
               </p>
               <p>
-                  I’ve had the opportunity to contribute as a <strong>Computer Vision Engineer</strong> at Drishte A.I., where I developed machine learning models, optimized real-time analytics pipelines, 
+                  I’ve had the opportunity to contribute as a <strong>Machine Learning Engineer</strong> at Drishte A.I., where I developed machine learning models, optimized real-time analytics pipelines, 
                   and implemented edge AI solutions. Additionally, I advanced speech feature extraction techniques as a <strong>Research Intern at NIT Warangal</strong>, 
                   focusing on improving clarity and bandwidth in audio processing systems.
               </p>
@@ -102,7 +107,7 @@
             <!-- Master's Degree -->
             <div class="timeline-item" onclick="toggleDetails('ms-details')">
               <div class="timeline-logo">
-                <img src="ub_logo.png" alt="University at Buffalo Logo" />
+                <img src="assests/images/ub_logo.png" alt="University at Buffalo Logo" />
               </div>
               <div class="timeline-content">
                 <h4>University at Buffalo </h4>
@@ -130,7 +135,7 @@
             <!-- Bachelor's Degree -->
             <div class="timeline-item" onclick="toggleDetails('btech-details')">
               <div class="timeline-logo">
-                <img src="iiit_logo.jpg" alt="IIIT Guwahati Logo" />
+                <img src="assests/images/iiit_logo.jpg" alt="IIIT Guwahati Logo" />
               </div>
               <div class="timeline-content">
                 <h4>IIIT Guwahati </h4>
@@ -156,7 +161,7 @@
             <!-- Computer Vision Engineer -->
             <div class="timeline-item" onclick="toggleDetails('cv-engineer-details')">
               <div class="timeline-logo">
-                <img src="drishte_logo.jpg" alt="Drishte AI Logo" />
+                <img src="assests/images/drishte_logo.jpg" alt="Drishte AI Logo" />
               </div>
               <div class="timeline-content">
                 <h4>Drishte A.I </h4>
@@ -175,7 +180,7 @@
             <!-- Research Intern -->
             <div class="timeline-item" onclick="toggleDetails('intern-details')">
               <div class="timeline-logo">
-                <img src="nitw_logo.png" alt="NIT Warangal Logo" />
+                <img src="assests/images/nitw_logo.png" alt="NIT Warangal Logo" />
               </div>
               <div class="timeline-content">
                 <h4>NIT Warangal </h4>
@@ -193,7 +198,6 @@
           </div>
         </div>
       </div>
-      <a href="AnuragHrudayPirangi_Resume.pdf" download class="resume-btn">Download Resume</a>
     </section>
     
     
@@ -227,7 +231,7 @@
     
           <!-- Project 2 -->
           <div class="project-card">
-            <img src="url_to_text_to_image_gen_thumbnail.jpg" alt="Text to Image Generation" class="project-thumbnail" />
+            <img src="https://raw.githubusercontent.com/anuraghruday/genAI_text_to_image/main/overleaf_files/a_happy_bear.png" alt="Text to Image Generation" class="project-thumbnail" />
             <div class="project-info">
               <h3>Text to Image Generation</h3>
               <p>Repository for text-to-image generation using advanced AI models.</p>
@@ -240,7 +244,7 @@
               <span class="close" onclick="closeModal('text_to_image_gen-modal')">&times;</span>
               <h3>Text to Image Generation</h3>
               <p>Repository implementing generative AI techniques for high-quality image generation based on text prompts.</p>
-              <a href="https://github.com/anuraghruday/text_to_image_gen" target="_blank" class="modal-btn">View on GitHub</a>
+              <a href="https://github.com/anuraghruday/genAI_text_to_image" target="_blank" class="modal-btn">View on GitHub</a>
             </div>
           </div>
         </div>
@@ -249,7 +253,7 @@
         <div class="project-row">
           <!-- Project 3 -->
           <div class="project-card">
-            <img src="url_to_style_transfer_thumbnail.jpg" alt="Style Transfer and Emotion Detection" class="project-thumbnail" />
+            <img src="https://raw.githubusercontent.com/anuraghruday/style_transfer/main/Starry-Night.png" alt="Style Transfer and Emotion Detection" class="project-thumbnail" />
             <div class="project-info">
               <h3>Style Transfer and Emotion Detection</h3>
               <p>Explores the impact of neural style transfer on human emotions.</p>
@@ -268,7 +272,7 @@
     
           <!-- Project 4 -->
           <div class="project-card">
-            <img src="url_to_autonomous_navigation_thumbnail.jpg" alt="Autonomous Navigation" class="project-thumbnail" />
+            <img src="https://raw.githubusercontent.com/f1tenth/f1tenth_doc/refs/heads/foxy_test/going_forward/simulator/img/basic_sim.gif" alt="Autonomous Navigation" class="project-thumbnail" />
             <div class="project-info">
               <h3>Autonomous Navigation</h3>
               <p>Enables autonomous vehicle navigation using ROS-Noetic.</p>
@@ -290,7 +294,7 @@
         <div class="project-row">
           <!-- Project 5 -->
           <div class="project-card">
-            <img src="url_to_traffic_control_thumbnail.jpg" alt="Intelligent Traffic Signal Control" class="project-thumbnail" />
+            <img src="https://raw.githubusercontent.com/eclipse/sumo/main/docs/web/docs/images/multiple-screenshots.png" alt="Intelligent Traffic Signal Control" class="project-thumbnail" />
             <div class="project-info">
               <h3>Intelligent Traffic Signal Control</h3>
               <p>Optimizes traffic signals using deep reinforcement learning.</p>
@@ -335,7 +339,7 @@
     <section id="contact">
       <div class="contact-container">
         <div class="contact-image">
-          <img src="about.jpg" alt="Anurag Hruday Pirangi" />
+          <img src="assests/images/about.jpg" alt="Anurag Hruday Pirangi" />
         </div>
         <div class="contact-info">
           <h2>Contact Me</h2>
