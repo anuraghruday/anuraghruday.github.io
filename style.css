@@ -18,6 +18,26 @@ html {
 }
 
 /* ================================================
+   IMAGE OPTIMIZATION
+================================================ */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ================================================
+   FULL-PAGE SECTIONS
+================================================ */
+main > section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ================================================
    FLOATING NAVIGATION
 ================================================ */
 .floating-nav {
@@ -73,6 +93,25 @@ html {
   color: #4386b3;
 }
 
+/* Hamburger Menu Fix */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2000;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #333;
+  display: none;
+}
+
+.floating-nav.open {
+  display: block !important;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /* ================================================
    MAIN CONTENT STRUCTURE
 ================================================ */
@@ -87,7 +126,8 @@ html {
 ================================================ */
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  padding: 0 !important; /* Added */
+  min-height: 100vh; /* Modified from min-height: 100vh */
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('https://images.pexels.com/photos/17483910/pexels-photo-17483910/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-concept-of-artificial-general-intelligence-agi-it-was-created-by-artist-domhnall-malone-as-part-of-th.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')
       no-repeat center center;
@@ -120,7 +160,7 @@ html {
 ================================================ */
 #about {
   background: #f9f9f9;
-  padding: 60px 20px;
+  padding: 0 !important; /* Changed from 60px 20px */
   text-align: center;
 }
 
@@ -174,7 +214,8 @@ html {
    RESUME SECTION
 ================================================ */
 .resume-section {
-  padding: 60px 20px;
+  padding: 60px 20px !important; /* Keep existing + add !important */
+  min-height: 100vh; /* Add this line */
   background: #f8f9fa;
   text-align: center;
 }
@@ -267,9 +308,9 @@ html {
    PROJECTS SECTION
 ================================================ */
 #projects {
-  padding: 60px 20px;
+  padding: 60px 20px !important; /* Add !important */
+  min-height: 100vh; /* Add this line */
 }
-
 .projects-container {
   display: flex;
   flex-direction: column;
@@ -393,6 +434,10 @@ html {
   background: #345a72;
 }
 
+/* Add this to existing modal styles */
+.modal:focus {
+  outline: 2px solid #4386b3;
+}
 /* ================================================
    CONTACT SECTION
 ================================================ */
@@ -507,6 +552,20 @@ html {
    RESPONSIVE DESIGN
 ================================================ */
 @media (max-width: 768px) {
+  main > section {
+    min-height: auto;
+    padding: 40px 15px;
+  }
+
+  .hero-section {
+    padding: 60px 20px !important;
+  }
+
+  .contact-container {
+    min-height: auto;
+    margin: 0;
+  }
+
   .about-container {
     flex-direction: column;
     text-align: center;
@@ -543,5 +602,18 @@ html {
 
   .timeline-item {
     max-width: 100%;
+  }
+}
+
+/* ================================================
+   PRINT STYLES
+================================================ */
+@media print {
+  .floating-nav, .hamburger {
+    display: none !important;
+  }
+  
+  .hero-section {
+    background: none !important;
   }
 }
