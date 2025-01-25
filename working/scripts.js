@@ -19,6 +19,49 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('scroll', handleScroll);
 });
 
+
+
+// Project Filter System
+function initializeProjectFilters() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterBtns.forEach(b => b.classList.remove('active'));
+      
+      // Add active class to clicked button
+      btn.classList.add('active');
+      
+      // Get filter value
+      const filter = btn.dataset.filter;
+
+      // Filter projects
+      projectCards.forEach(card => {
+        const categories = card.dataset.categories.split(' ');
+        const shouldShow = filter === 'all' || categories.includes(filter);
+        
+        // Use setTimeout to allow smooth transition
+        if (!shouldShow) {
+          card.classList.add('hidden');
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 400); // Match transition duration
+        } else {
+          card.style.display = 'block';
+          setTimeout(() => {
+            card.classList.remove('hidden');
+          }, 10);
+        }
+      });
+    });
+  });
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', initializeProjectFilters);
+
 // Scroll Handling
 function handleScroll() {
   const sections = document.querySelectorAll('section');
@@ -74,3 +117,4 @@ document.addEventListener('keydown', (event) => {
     });
   }
 });
+

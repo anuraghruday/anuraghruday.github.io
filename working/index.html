@@ -199,19 +199,25 @@
         </div>
       </div>
     </section>
-    
-    
 
     <!-- Projects Section-->
-
     <section id="projects" data-aos="fade-up">
       <h2>Projects</h2>
+
+      <!-- Add this right after <h2>Projects</h2> -->
+      <div class="project-filters" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="robotics">Robotics</button>
+        <button class="filter-btn" data-filter="cv">Computer Vision</button>
+        <button class="filter-btn" data-filter="ai">AI/ML</button>
+        <button class="filter-btn" data-filter="mystery">? ? ?</button>
+      </div>
 
       <div class="projects-container">
         <!-- Row 1 -->
         <div class="project-row">
           <!-- Project 1 -->
-          <div class="project-card">
+          <div class="project-card" data-categories="av ai">
             <img src="https://raw.githubusercontent.com/anuraghruday/ar_object_detection/main/output4.png" alt="AR Object Detection" class="project-thumbnail" />
             <div class="project-info">
               <h3>AR Object Detection</h3>
@@ -230,7 +236,7 @@
           </div>
     
           <!-- Project 2 -->
-          <div class="project-card">
+          <div class="project-card" data-categories="ai">
             <img src="https://raw.githubusercontent.com/anuraghruday/genAI_text_to_image/main/overleaf_files/a_happy_bear.png" alt="Text to Image Generation" class="project-thumbnail" />
             <div class="project-info">
               <h3>Text to Image Generation</h3>
@@ -250,9 +256,9 @@
         </div>
     
         <!-- Row 2 -->
-        <div class="project-row">
+        <div class="project-row" >
           <!-- Project 3 -->
-          <div class="project-card">
+          <div class="project-card" data-categories="cv ai">
             <img src="https://raw.githubusercontent.com/anuraghruday/style_transfer/main/Starry-Night.png" alt="Style Transfer and Emotion Detection" class="project-thumbnail" />
             <div class="project-info">
               <h3>Style Transfer and Emotion Detection</h3>
@@ -271,7 +277,7 @@
           </div>
     
           <!-- Project 4 -->
-          <div class="project-card">
+          <div class="project-card" data-categories="robotics">
             <img src="https://raw.githubusercontent.com/f1tenth/f1tenth_doc/refs/heads/foxy_test/going_forward/simulator/img/basic_sim.gif" alt="Autonomous Navigation" class="project-thumbnail" />
             <div class="project-info">
               <h3>Autonomous Navigation</h3>
@@ -291,9 +297,9 @@
         </div>
     
         <!-- Row 3 -->
-        <div class="project-row">
+        <div class="project-row" >
           <!-- Project 5 -->
-          <div class="project-card">
+          <div class="project-card" data-categories="ai">
             <img src="https://raw.githubusercontent.com/eclipse/sumo/main/docs/web/docs/images/multiple-screenshots.png" alt="Intelligent Traffic Signal Control" class="project-thumbnail" />
             <div class="project-info">
               <h3>Intelligent Traffic Signal Control</h3>
@@ -312,7 +318,7 @@
           </div>
     
           <!-- Project 6 -->
-          <div class="project-card">
+          <div class="project-card" data-categories="mystery">
             <img src="url_to_genAI_thumbnail.jpg" alt="Generative AI for Text to Image" class="project-thumbnail" />
             <div class="project-info">
               <h3>Generative AI for Text to Image</h3>

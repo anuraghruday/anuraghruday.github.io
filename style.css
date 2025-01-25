@@ -305,34 +305,109 @@ main > section {
 }
 
 /* ================================================
+   PROJECT FILTERS
+================================================ */
+.project-filters {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.filter-btn {
+  background: #4386b3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+  background: #345a72;
+  transform: scale(1.1);
+}
+
+.filter-btn:hover {
+  background: #345a72;
+}
+
+/* ================================================
    PROJECTS SECTION
 ================================================ */
 #projects {
-  padding: 60px 20px !important; /* Add !important */
-  min-height: 100vh; /* Add this line */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+#projects h2 {
+  font-size: 2.5rem; /* Match About section size */
+  color: #333;
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+#projects h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: #4386b3; /* Your theme color */
+}
+
+/* Add animation */
+#projects h2 {
+  animation: fadeIn 1s ease-in-out;
+}
+
 .projects-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
   align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .project-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
+  justify-content: center;
+  justify-items: center; /* Add this line */
+  padding: 20px 0;
+  width: 100%;
 }
 
 .project-card {
   background: #fff;
-  width: 300px;
+  width: 100%;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: left;
+  transition: all 0.4s ease-in-out;
+  opacity: 1;
+  max-height: 500px; /* Adjust based on your card height */
+  max-width: 400px;
+}
+
+/* Hidden state */
+.project-card.hidden {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  transform: scale(0.8);
+  pointer-events: none;
 }
 
 .project-card:hover {
@@ -578,6 +653,28 @@ main > section {
   .about-image img {
     width: 300px;
     height: 300px;
+  }
+
+  .project-row {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  #projects h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  #projects h2::after {
+    width: 60px;
+  }
+
+  .project-card {
+    max-width: 100%;
+  }
+  
+  .project-card.hidden {
+    transform: scale(0.95);
   }
 
   .contact-container {
