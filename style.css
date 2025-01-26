@@ -703,6 +703,8 @@ main > section {
 
   .hamburger {
     display: block;
+    opacity: 0.5;
+    transition: opacity 0.3s;
   }
 
   .resume-grid {
