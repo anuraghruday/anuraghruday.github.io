@@ -90,6 +90,17 @@ function toggleNavMenu() {
   const hamburger = document.querySelector('.hamburger');
   const isExpanded = nav.classList.toggle('open');
   hamburger.setAttribute('aria-expanded', isExpanded);
+
+  // Overlay logic
+  const overlay = document.querySelector('.nav-overlay');
+  if (isExpanded) {
+    const newOverlay = document.createElement('div');
+    newOverlay.className = 'nav-overlay';
+    newOverlay.onclick = toggleNavMenu;
+    document.body.appendChild(newOverlay);
+  } else {
+    document.querySelector('.nav-overlay')?.remove();
+  }
 }
 
 // Modal Functions
